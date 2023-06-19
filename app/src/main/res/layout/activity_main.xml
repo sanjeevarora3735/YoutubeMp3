@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:src="@drawable/youtube" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/plus_semibold"
+            android:padding="5dp"
+            android:text="MP3 Downloader"
+            android:textFontWeight="700"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/DownloadingConstraintLayout"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="match_parent"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/Thumbnail"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:maxLines="2"
+                android:maxLength="60"
+                android:ellipsize="end"
+                android:id="@+id/Title"
+                android:fontFamily="@font/plus_semibold"
+                android:textSize="16dp"
+                android:textFontWeight="700"/>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/LikeCount"
+                        android:fontFamily="@font/plus"
+                        android:text="3.5M Likes"
+                        android:drawablePadding="5dp"
+                        android:textSize="14dp"
+                        android:paddingEnd="40dp"
+                        android:padding="5dp"
+                        android:gravity="start|center_vertical"
+                        android:drawableStart="@drawable/like"
+                        android:drawableTint="#D3D3D3"
+                        android:textColor="@color/black"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ViewsCount"
+                        android:fontFamily="@font/plus"
+                        android:text="3.5M Views"
+                        android:drawablePadding="5dp"
+                        android:textSize="14dp"
+                        android:padding="5dp"
+                        android:gravity="start|center_vertical"
+                        android:drawableStart="@drawable/view"
+                        android:drawableTint="#D3D3D3"
+                        android:textColor="@color/black"
+                        />
+
+                </LinearLayout>
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Downloading..."
+                    android:id="@+id/progressingstatus"
+                    android:fontFamily="@font/plus_semibold"
+                    android:textSize="16dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="textEnd"
+                android:id="@+id/progressingtext"
+                android:fontFamily="@font/plus_semibold"
+                android:textSize="16dp"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"/>
+            </LinearLayout>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:indicatorColor="#3690FA"
+                android:layout_marginStart="10dp"
+                android:progress="0"
+                app:trackCornerRadius="2dp"
+                android:max="100"
+                android:id="@+id/DownloadingProgressbar"
+                app:trackColor="#EEEFEE"
+                android:layout_marginEnd="10dp"
+                app:trackThickness="8dp"/>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/GrabbingConstraintLayout"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="match_parent"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Header">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plus_semibold"
+                android:paddingBottom="10dp"
+                android:text="YouTube Link"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/YoutubeLink"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:boxStrokeColor="#D3D3D3"
+                app:endIconContentDescription="Clear Youtube Link"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/hyperlink">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/YoutubeLinkEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="url"
+                    android:fontFamily="@font/plus_semibold"
+                    android:hint="Youtube Link"
+                    android:inputType="textUri"
+                    android:textColorHint="#90000000"
+                    android:textSize="14dp"
+                    tools:ignore="TextSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plus_semibold"
+                android:paddingBottom="10dp"
+                android:text="Destination Folder"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/DestinationFolder"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:boxStrokeColor="#D3D3D3"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/outline_folder_open_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/DestinationFolderEditText"
+                    android:layout_width="match_parent"
+                    android:allowClickWhenDisabled="true"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_semibold"
+                    android:hint="Destination Folder"
+                    android:inputType="text"
+                    android:textColorHint="#90000000"
+                    android:textSize="14dp"
+                    tools:ignore="TextSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_info_24"
+                android:drawablePadding="5dp"
+                android:drawableTint="#D3D3D3"
+                android:fontFamily="@font/plus"
+                android:text="Where you want to save the MP3"
+                android:textSize="12dp"
+                tools:ignore="TextSizeCheck" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/DownloadButton"
+            layout="@layout/progress_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/Error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:paddingBottom="20dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DownloadButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
