@@ -66,5 +66,3 @@ The YouTube to MP3 Conversion App utilizes the following technologies:
 For more details, refer to the [YouTube to MP3 Conversion App GitHub Repository](https://github.com/sanjeevarora3735/YoutubeMp3).
 
 ---
-
-Feel free to make further improvements to the README.md file, including adding screenshots, code snippets, or any other relevant information. The goal is to provide an informative and visually appealing document that effectively communicates the features and usage of your YouTube to MP3 Conversion App.
